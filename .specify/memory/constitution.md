@@ -1,50 +1,109 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# DeepTalk Constitution
+<!-- 规格管理和开发工具套件项目章程 -->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. 代码质量至上 (Code Quality First)
+所有代码必须遵循严格的质量标准；代码审查是强制性的，不得跳过；每个功能模块必须具备清晰的文档和注释；代码必须遵循一致的编码规范和最佳实践；重构和代码优化是持续进行的活动，而非可选项。
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. 全面测试标准 (Comprehensive Testing Standards)
+测试驱动开发 (TDD) 是不可协商的要求：先写测试 → 用户批准 → 测试失败 → 然后实现；单元测试覆盖率必须达到 90% 以上；集成测试必须覆盖所有关键业务流程；性能测试和负载测试是发布前的必要步骤；所有测试必须自动化并集成到 CI/CD 流程中。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. 用户体验一致性 (User Experience Consistency)
+所有用户界面和交互必须遵循统一的设计系统；命令行工具必须提供一致的参数格式和输出结构；错误消息必须清晰、有用且可操作；文档和帮助信息必须保持最新且易于理解；用户反馈必须及时响应并纳入产品改进。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. 性能要求标准 (Performance Requirements)
+所有功能必须满足明确的性能基准：响应时间、吞吐量、资源使用率；性能监控和日志记录是强制性的；性能回归测试必须在每次发布前执行；资源使用必须优化，避免不必要的内存和 CPU 消耗；可扩展性设计必须从项目初期就考虑。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. 工具链标准化 (Toolchain Standardization)
+所有 speckit 命令必须遵循统一的接口规范：文本输入/输出协议，stdin/args → stdout，错误 → stderr；支持 JSON 和人类可读格式；每个工具必须独立可测试和文档化；版本控制和向后兼容性必须严格管理。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## 技术标准 (Technical Standards)
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### 开发环境要求
+- Node.js 环境支持，包含适当的包管理配置
+- Git 版本控制，包含适当的 .gitignore 配置
+- Markdown 文档系统，确保文档的一致性和可维护性
+- 自动化脚本支持，用于检查先决条件和执行工作流程
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### 代码组织原则
+- 功能模块化：每个功能作为独立模块开发
+- 清晰的目录结构：`.cursor/commands/` 用于命令定义，`.specify/` 用于规格管理
+- 模板驱动：使用标准化模板确保一致性
+- 多语言支持：提供中英文双语文档和界面
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### 安全要求
+- 所有输入必须进行验证和清理
+- 敏感信息不得硬编码或记录在日志中
+- 访问控制和权限管理必须严格执行
+- 定期进行安全审计和漏洞扫描
+
+## 工作流程约定 (Workflow Conventions)
+
+### 开发流程
+1. **需求分析**：使用 `/speckit.clarify` 明确需求
+2. **规格制定**：使用 `/speckit.specify` 创建详细规格
+3. **计划制定**：使用 `/speckit.plan` 生成实施计划
+4. **任务分解**：使用 `/speckit.tasks` 生成任务清单
+5. **质量检查**：使用 `/speckit.analyze` 进行一致性分析
+6. **实施执行**：使用 `/speckit.implement` 执行实施
+
+### 代码审查要求
+- 所有代码变更必须经过至少一人审查
+- 审查必须检查代码质量、测试覆盖率、文档完整性
+- 性能影响必须评估和记录
+- 安全影响必须评估和记录
+
+### 发布管理
+- 使用语义化版本控制 (MAJOR.MINOR.PATCH)
+- 每次发布必须包含变更日志
+- 破坏性变更必须提前通知并提供迁移指南
+- 发布前必须通过所有自动化测试
+
+## 文档标准 (Documentation Standards)
+
+### 文档要求
+- 所有功能必须有完整的文档
+- 文档必须包含使用示例和最佳实践
+- API 文档必须自动生成并保持最新
+- 用户指南必须定期更新和验证
+
+### 文档格式
+- 使用 Markdown 格式
+- 遵循统一的文档模板
+- 支持中英文双语
+- 包含适当的代码示例和截图
+
+## 质量保证 (Quality Assurance)
+
+### 持续集成要求
+- 所有代码提交必须触发自动化测试
+- 测试失败的代码不得合并到主分支
+- 代码覆盖率报告必须生成并监控
+- 性能基准测试必须定期执行
+
+### 监控和日志
+- 所有关键操作必须记录日志
+- 错误和异常必须及时报告和处理
+- 性能指标必须持续监控
+- 用户行为分析必须支持产品改进
+
+## 协作指南 (Collaboration Guidelines)
+
+### 团队协作
+- 使用统一的沟通渠道和工具
+- 定期进行代码审查和技术分享
+- 问题和建议必须及时响应
+- 知识共享和文档化是每个人的责任
+
+### 冲突解决
+- 技术争议通过数据和测试结果解决
+- 设计决策必须记录和解释
+- 重大变更必须经过团队讨论和批准
+- 章程冲突必须通过正式流程解决
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+本章程优先于所有其他实践和约定；章程修订需要文档化、批准和迁移计划；所有 PR 和审查必须验证合规性；复杂性必须有充分理由；使用项目指导文档进行运行时开发指导。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-01-27 | **Last Amended**: 2025-01-27
