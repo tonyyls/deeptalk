@@ -1,0 +1,14 @@
+{
+  "name": "deeptalk",
+  "version": "1.0.0",
+  "description": "DeepTalk AI Chat Application",
+  "private": true,
+  "scripts": {
+    "build": "cd ai-chat-vercel && npm install && npm run build",
+    "dev": "cd ai-chat-vercel && npm run dev",
+    "start": "cd ai-chat-vercel && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
