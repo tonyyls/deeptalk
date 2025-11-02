@@ -1,0 +1,60 @@
+{
+  "name": "ai-chat-vercel",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "基于GLM-4.6的智能聊天应用，支持GitHub OAuth2登录",
+  "scripts": {
+    "dev": "vite",
+    "dev:local": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "NODE_ENV=development node server/dev-server.js",
+    "client:dev": "NODE_ENV=development SKIP_AUTH=true vite",
+    "build": "vite build",
+    "build-with-types": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "preview:local": "NODE_ENV=development SKIP_AUTH=true vite preview",
+    "vercel-build": "npm run build",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@heroicons/vue": "^2.0.18",
+    "@tdesign-vue-next/chat": "^0.4.6",
+    "@vercel/kv": "^1.0.1",
+    "axios": "^1.6.0",
+    "dotenv": "^17.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "pinia": "^2.1.7",
+    "redis": "^5.9.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "terser": "^5.44.0",
+    "typescript": "^5.2.0",
+    "vercel": "^48.6.7",
+    "vite": "^5.0.0",
+    "vue-tsc": "^1.8.25"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ai",
+    "chat",
+    "vue3",
+    "vercel",
+    "typescript",
+    "glm-4.6",
+    "github-oauth"
+  ],
+  "author": "AI Chat Team",
+  "license": "MIT"
+}

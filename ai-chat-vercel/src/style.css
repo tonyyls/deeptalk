@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * 全局样式定义
+ * 包含基础样式、组件样式和工具类
+ */
+
+@layer base {
+  /* 基础HTML元素样式 */
+  html {
+    @apply h-full;
+  }
+  
+  body {
+    @apply h-full bg-gray-50 text-gray-900 font-sans antialiased;
+  }
+  
+  #app {
+    @apply h-full;
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+@layer components {
+  /* 按钮组件样式 */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-gray-500;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  
+  /* 输入框组件样式 */
+  .input {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200;
+  }
+  
+  .input-error {
+    @apply border-red-300 focus:ring-red-500;
+  }
+  
+  /* 卡片组件样式 */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+  
+  .card-body {
+    @apply px-6 py-4;
+  }
+  
+  .card-footer {
+    @apply px-6 py-4 border-t border-gray-200;
+  }
+  
+  /* 消息气泡样式 */
+  .message-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg text-sm;
+  }
+  
+  .message-user {
+    @apply bg-primary-600 text-white ml-auto;
+  }
+  
+  .message-assistant {
+    @apply bg-white border border-gray-200 text-gray-900;
+  }
+  
+  /* 加载动画 */
+  .loading-dots {
+    @apply inline-flex space-x-1;
+  }
+  
+  .loading-dots > div {
+    @apply w-2 h-2 bg-gray-400 rounded-full animate-pulse;
+  }
+  
+  .loading-dots > div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading-dots > div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
+@layer utilities {
+  /* 自定义工具类 */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 深色模式样式 */
+@media (prefers-color-scheme: dark) {
+  .dark {
+    @apply bg-gray-900 text-gray-100;
+  }
+  
+  .dark .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .dark .input {
+    @apply bg-gray-800 border-gray-600 text-gray-100 placeholder-gray-400;
+  }
+  
+  .dark .btn-secondary {
+    @apply bg-gray-700 text-gray-100 hover:bg-gray-600;
+  }
+  
+  .dark .message-assistant {
+    @apply bg-gray-800 border-gray-700 text-gray-100;
+  }
+}

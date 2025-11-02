@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试通知</title>
+</head>
+<body>
+    <h1>测试通知功能</h1>
+    <button onclick="testNotification()">点击测试错误通知</button>
+    
+    <script>
+        function testNotification() {
+            // 模拟点击页面上的测试按钮
+            console.log('测试按钮被点击');
+            
+            // 在浏览器控制台中执行以下代码来测试通知
+            // 需要在实际的应用页面中执行
+            alert('请在实际应用页面的控制台中执行以下代码:\n\n// 获取通知store\nconst { showError } = window.__VUE_DEVTOOLS_GLOBAL_HOOK__.apps[0].config.globalProperties.$pinia._s.get("notification")\n\n// 触发错误通知\nshowError("发送消息失败，请重试")');
+        }
+    </script>
+</body>
+</html>
