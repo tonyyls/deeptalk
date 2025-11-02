@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "buildCommand": "cd ai-chat-vercel && npm install && npm run build",
+  "outputDirectory": "ai-chat-vercel/dist",
+  "installCommand": "cd ai-chat-vercel && npm install",
+  "functions": {
+    "ai-chat-vercel/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/ai-chat-vercel/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/ai-chat-vercel/dist/$1"
+    },
+    {
+      "src": "/.*",
+      "dest": "/ai-chat-vercel/dist/index.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/ai-chat-vercel/api/$1"
+    },
+    {
+      "source": "/((?!api).*)",
+      "destination": "/ai-chat-vercel/dist/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}
